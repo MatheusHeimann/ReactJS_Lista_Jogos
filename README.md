@@ -16,11 +16,11 @@ Antes de iniciar, você precisa ter o Node.js e o npm instalados em sua máquina
 1. Clone o repositório para sua máquina:
 
    ```
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/MatheusHeimann/ReactJS_Lista_Jogos
 
 2. Navegue até o diretório do projeto:
     ```
-    cd nome-do-repositorio
+    cd ReactJS_Lista_Jogos
 
 3. Instale as dependências do projeto:
     ```
