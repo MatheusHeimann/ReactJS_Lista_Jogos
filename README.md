@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Lista de Jogos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto React para gerenciar uma lista de jogos, permitindo adicionar, editar e remover jogos.
 
-## Available Scripts
+## Tecnologias Usadas
 
-In the project directory, you can run:
+- React
+- CSS puro
 
-### `npm start`
+## Pré-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de iniciar, você precisa ter o Node.js e o npm instalados em sua máquina.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalação
 
-### `npm test`
+1. Clone o repositório para sua máquina:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-### `npm run build`
+2. Navegue até o diretório do projeto:
+    ```
+    cd nome-do-repositorio
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Instale as dependências do projeto:
+    ```
+    npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Inicie a aplicação
+    ```
+    npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+EXPLICAÇÃO DO COMPONENTE
 
-### `npm run eject`
+1. Importações e Estados
+O componente utiliza os hooks useState e useCallback do React:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+useState é usado para definir os estados jogos, newJogo, isEditing e currentIndex.
+jogos armazena a lista de jogos.
+newJogo armazena o valor do campo de entrada onde o usuário digita o nome do jogo.
+isEditing é um booleano que indica se o usuário está editando um jogo existente.
+currentIndex armazena o índice do jogo que está sendo editado.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Funções Callback
+O componente define três funções principais utilizando o hook useCallback:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+addJogo: Esta função adiciona um novo jogo à lista ou salva alterações em um jogo existente. Se isEditing for verdadeiro, a função atualiza o jogo no índice currentIndex. Caso contrário, adiciona newJogo à lista de jogos.
+removeJogo: Esta função remove um jogo da lista com base no índice fornecido. Ela utiliza filter para criar uma nova lista sem o jogo no índice especificado.
+editJogo: Esta função prepara o componente para a edição de um jogo existente. Ela define newJogo com o valor do jogo a ser editado, isEditing como verdadeiro, e currentIndex com o índice do jogo.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Renderização
+O componente retorna um JSX que inclui:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Um título "Lista de Jogos".
+Um campo de entrada (input) onde o usuário digita o nome do jogo.
+Um botão que chama addJogo ao ser clicado. O texto do botão muda para "Salvar Alteração" se o usuário estiver editando um jogo.
+Uma lista (ul) que exibe todos os jogos. Cada jogo é exibido dentro de um item de lista (li) com dois botões:
+Um botão de editar, representado por um ícone de lápis, que chama editJogo ao ser clicado.
+Um botão de remover, representado por um ícone de lixeira, que chama removeJogo ao ser clicado.
